@@ -5,7 +5,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Stash.it</h1>
+        <div className='container'>
+          {/*  */}
+        </div>
       </div>
     );
   }
