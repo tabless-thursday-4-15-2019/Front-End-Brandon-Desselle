@@ -66,7 +66,8 @@ class Login extends React.Component {
   register = e => {
     e.preventDefault()
     axios
-      .post('http://localhost:3000/register', {
+      /* http://localhost:3000/register */
+      .post('https://tabless-db.herokuapp.com/register', {
         username: this.state.username,
         password: this.state.password,
         email: this.state.email
@@ -128,7 +129,7 @@ class Login extends React.Component {
             toggle={this.modalToggle}
             className="sign-up"
           >
-            <ModalHeader className="sign-up" toggle={this.modalToggle}><span className="accent-quote">Sign Up</span><div className="always-thursday" /></ModalHeader>
+            <ModalHeader className="sign-up" toggle={this.modalToggle}><span className="accent-quote">Sign Up</span><div className="stash" /></ModalHeader>
             <ModalBody>
               <Input
                 type="text"
