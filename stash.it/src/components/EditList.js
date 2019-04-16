@@ -38,7 +38,7 @@ class EditList extends React.Component {
     console.log(id)
     const editList = this.state.editList
     axiosWithAuth()
-      .put(`localhost:3000/tabs/${id}`, editList)
+      .put(`https://localhost:3000/tabs/${id}`, editList)
       .then(res => {
         console.log(res)
         window.location.reload()
