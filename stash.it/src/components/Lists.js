@@ -73,7 +73,7 @@ class Lists extends Component {
 
   deleteList = id => {
     axiosWithAuth()
-      .delete(`http://localhost:3000/tabs/${id}`)
+      .delete(`localhost:3000/tabs/${id}`)
       .then(res => {
         console.log(res)
         this.props.fetchLists(this.props.user_id)
