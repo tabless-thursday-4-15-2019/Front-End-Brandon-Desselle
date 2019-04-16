@@ -11,7 +11,7 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 export const login = creds => dispatch => {
   dispatch({ type: LOGIN_START })
   return axios
-    .post('localhost:3000/login', creds)
+    .post('https://localhost:3000/login', creds)
     .then(res => {
       dispatch({ type: LOGIN_SUCCESS, payload: res.data.payload })
     })
@@ -29,7 +29,7 @@ export const FETCH_LISTS_FAILURE = 'FETCH_DATA_FAILURE'
 export const fetchLists = user_id => dispatch => {
   dispatch({ type: FETCH_LISTS_START })
   axios
-    .get(`localhost:3000/tabs/${user_id}`, {
+    .get(`https://localhost:3000/tabs/${user_id}`, {
       headers: { Authorization: localStorage.getItem('token') }
     })
     .then(res => {
@@ -48,7 +48,7 @@ export const ADD_LIST_FAILURE = 'ADD_LIST_FAILURE'
 
 export const addList = newList => dispatch => {
   axiosWithAuth()
-    .post(`localhost:3000/tabs`, newList)
+    .post(`https://localhost:3000/tabs`, newList)
     .then(res => {
       dispatch({ type: ADD_LIST, payload: res.data })
     })
@@ -66,7 +66,7 @@ export const DELETE_SUCCESS = 'DELETE_SUCCESS'
 export const deleteList = id => dispatch => {
   dispatch({ type: DELETE_START })
   axiosWithAuth()
-    .delete(`localhost:3000/tabs/${id}`)
+    .delete(`https://localhost:3000/tabs/${id}`)
     .then(res => {
       dispatch({ type: DELETE_SUCCESS, payload: res.data })
     })
