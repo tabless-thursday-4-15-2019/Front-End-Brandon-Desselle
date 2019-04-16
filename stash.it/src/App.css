@@ -1,11 +1,43 @@
+:root {
+	/* COLORS */
+	--text: #33475b;
+	--cta: #1c64f6;
+	--primary: #1e46f5;
+	--secondary: #f9c446;
+
+	--white: #ffffff;
+	--black: #000000;
+
+	/* FONTS */
+	--head: {
+		font-family: 'Raleway';
+		font-weight: 700;
+	}
+	--medium: {
+		font-family: 'Raleway';
+		font-weight: 500;
+	}
+	--body: {
+		font-family: 'Raleway';
+		font-weight: 400;
+	}
+}
+
+/* FONT CALL */
+@font-face {
+	font-family: 'Raleway';
+	src: url('https://fonts.googleapis.com/css?family=Raleway:400,500,700');
+}
+
 .App {
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	font-family: var(--head);
 }
 
-i {
+/* i {
 	cursor: pointer;
 }
 
@@ -21,10 +53,6 @@ h1 {
 	font-size: 30px;
 	font-weight: bold;
 }
-
-/* --- Login Page --- */
-/* --- Login Page --- */
-/* --- Login Page --- */
 
 .login-wrapper {
 	display: flex;
@@ -109,10 +137,6 @@ h1 {
 	background-color: #373331;
 }
 
-/* --- Lists --- */
-/* --- Lists --- */
-/* --- Lists --- */
-
 .loader {
 	margin-top: 300px;
 }
@@ -172,10 +196,6 @@ h1 {
 	background-color: #512e5e;
 }
 
-/* --- List --- */
-/* --- List --- */
-/* --- List --- */
-
 .cat-wrapper {
 	display: flex;
 	flex-wrap: wrap;
@@ -209,16 +229,11 @@ h1 {
 	width: 30px;
 	border-radius: 50%;
 	z-index: 100;
-	/* box-shadow: 0px 14px 64px -1px rgba(0,0,0,0.75); */
 }
 
 .tabs p {
 	margin-top: 10px;
 }
-
-/* --- Edit List --- */
-/* --- Edit List --- */
-/* --- Edit List --- */
 
 .tab-icon-wrapper {
 	display: flex;
@@ -239,10 +254,6 @@ h1 {
 	background-color: #512e5e;
 }
 
-/* --- Footer --- */
-/* --- Footer --- */
-/* --- Footer --- */
-
 footer {
 	width: 100%;
 	height: 80px;
@@ -251,4 +262,4 @@ footer {
 	margin-top: 80px;
 	background-color: white;
 	padding-top: 50px;
-}
+} */
