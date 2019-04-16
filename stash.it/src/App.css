@@ -1,0 +1,254 @@
+.App {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+i {
+	cursor: pointer;
+}
+
+p {
+	font-family: 'Lato', sans-serif;
+}
+
+h1 {
+	font-family: 'Lato', sans-serif;
+	margin-top: 130px;
+	margin-left: 30px;
+	margin-bottom: -190px;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+/* --- Login Page --- */
+/* --- Login Page --- */
+/* --- Login Page --- */
+
+.login-wrapper {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.login-div {
+	width: 500px;
+	height: 500px;
+}
+
+.login-form-wrapper {
+	width: 100%;
+	height: 1000px;
+	display: flex;
+	justify-content: center;
+	background-position: 50% 50%;
+}
+
+.login-form {
+	width: 400px;
+	height: 500px;
+	margin-top: 120px;
+	box-shadow: 10px 11px 28px 0px rgba(0, 0, 0, 0.75);
+	background-color: #ecf0f1;
+	padding: 20px;
+	padding-top: 70px;
+	z-index: 1;
+}
+
+.logo-tt {
+	height: 100px;
+	width: 150px;
+	margin-left: 135px;
+	background-repeat: no-repeat;
+}
+
+.login-input {
+	height: 50px;
+	margin-bottom: 5px;
+	background-color: white;
+}
+
+.login-button-wrapper {
+	display: flex;
+	flex-direction: column-reverse;
+	justify-content: center;
+}
+
+.login-form p {
+	cursor: pointer;
+}
+
+.login-button-wrapper p {
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.login-button {
+	background-color: #34495e;
+}
+
+.accent-quote {
+	font-size: 100px;
+}
+
+.always-thursday {
+	height: 100px;
+	width: 490px;
+	margin-top: -100px;
+	margin-left: -12px;
+	background-position: 50% 50%;
+}
+
+.sign-up {
+	background-color: #000000;
+	color: #ffffff;
+}
+
+.reg-btn {
+	background-color: #373331;
+}
+
+/* --- Lists --- */
+/* --- Lists --- */
+/* --- Lists --- */
+
+.loader {
+	margin-top: 300px;
+}
+
+.lists-wrapper {
+	width: 100%;
+}
+
+.nav-bar {
+	width: 100%;
+	height: 80px;
+	position: fixed;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	background-position: 2% 50%;
+	background-repeat: no-repeat;
+	background-color: #000000;
+	box-shadow: -1px 6px 35px -1px rgba(0, 0, 0, 0.75);
+	padding-right: 10px;
+	padding-left: 180px;
+	color: white;
+	font-size: 30px;
+	z-index: 200;
+}
+
+.nav-bar i {
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.plus {
+	width: 200px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #ffffff;
+	color: black;
+}
+
+.user {
+	width: 400px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #;
+}
+
+.add-tab-header {
+	text-align: center;
+	background-color: #ecf0f1;
+}
+
+.add-tab-btn {
+	background-color: #512e5e;
+}
+
+/* --- List --- */
+/* --- List --- */
+/* --- List --- */
+
+.cat-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: -100px;
+	margin-bottom: -80px;
+	padding-top: 200px;
+	background-color: white;
+}
+
+.tabs {
+	width: 350px;
+	margin: 20px;
+	box-shadow: 10px 11px 42px -1px rgba(0, 0, 0, 0.75);
+	transition: box-shadow 2s;
+}
+
+.cap {
+	display: flex;
+	justify-content: space-between;
+	background-color: #ecf0f1;
+}
+
+.title {
+	font-family: 'Roboto Mono', monospace;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.fav {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	z-index: 100;
+	/* box-shadow: 0px 14px 64px -1px rgba(0,0,0,0.75); */
+}
+
+.tabs p {
+	margin-top: 10px;
+}
+
+/* --- Edit List --- */
+/* --- Edit List --- */
+/* --- Edit List --- */
+
+.tab-icon-wrapper {
+	display: flex;
+	justify-content: space-around;
+	background-color: #ecf0f1;
+	padding: 20px;
+}
+
+.tab-icon-wrapper i {
+	font-size: 30px;
+}
+
+.edit-header {
+	background-color: #ecf0f1;
+}
+
+.edit-btn {
+	background-color: #512e5e;
+}
+
+/* --- Footer --- */
+/* --- Footer --- */
+/* --- Footer --- */
+
+footer {
+	width: 100%;
+	height: 80px;
+	display: flex;
+	justify-content: center;
+	margin-top: 80px;
+	background-color: white;
+	padding-top: 50px;
+}
