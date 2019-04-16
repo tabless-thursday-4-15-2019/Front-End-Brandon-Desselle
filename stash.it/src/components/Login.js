@@ -49,7 +49,7 @@ class Login extends React.Component {
   login = e => {
     e.preventDefault()
     axios
-      .post('http://localhost:3000/login', {
+      .post('localhost:3000/login', {
         username: this.state.username,
         password: this.state.password
       })
@@ -67,7 +67,7 @@ class Login extends React.Component {
     e.preventDefault()
     axios
       /* http://localhost:3000/register */
-      .post('https://tabless-db.herokuapp.com/register', {
+      .post('tabless-db.herokuapp.com/register', {
         username: this.state.username,
         password: this.state.password,
         email: this.state.email
