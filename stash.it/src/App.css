@@ -29,7 +29,7 @@
 	src: url('https://fonts.googleapis.com/css?family=Raleway:400,500,700');
 }
 
-.App {
+/* .App {
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -37,7 +37,7 @@
 	font-family: var(--head);
 }
 
-/* i {
+i {
 	cursor: pointer;
 }
 
@@ -262,4 +262,5 @@ footer {
 	margin-top: 80px;
 	background-color: white;
 	padding-top: 50px;
-} */
+}
+ */
