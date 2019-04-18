@@ -29,7 +29,7 @@ export const FETCH_LISTS_FAILURE = 'FETCH_DATA_FAILURE'
 export const fetchLists = user_id => dispatch => {
   dispatch({ type: FETCH_LISTS_START })
   axios
-    .get(`https://localhost:3000/tabs/${user_id}`, {
+    .get(`https://tabless-nopg.herokuapp.com/users/${user_id}/tabs`, {
       headers: { Authorization: localStorage.getItem('token') }
     })
     .then(res => {
