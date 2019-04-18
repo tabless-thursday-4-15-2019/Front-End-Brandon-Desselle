@@ -33,6 +33,7 @@ export const fetchLists = user_id => dispatch => {
       headers: { Authorization: localStorage.getItem('token') }
     })
     .then(res => {
+      console.log(res)
       dispatch({ type: FETCH_LISTS_SUCCESS, payload: res.data })
     })
     .catch(err => {
