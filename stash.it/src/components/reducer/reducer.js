@@ -54,6 +54,7 @@ export const reducer = (state = initialState, action) => {
         error: null
       }
     case FETCH_LISTS_SUCCESS:
+    console.log(action.payload)
       return {
         ...state,
         lists: Object.assign(state.lists, action.payload),
@@ -67,13 +68,14 @@ export const reducer = (state = initialState, action) => {
         error: action.payload
       }
     case ADD_LIST:
-      if (Object.keys(state.lists).includes(action.payload.category)) {
+    console.log(action.payload)
+      if (Object.keys(state.lists).includes(action.payload.description)) {
         return {
           ...state,
           lists: {
-            ...state.lists,
-            [action.payload.category]: [
-              ...state.lists[action.payload.category],
+            ...state.lists.tabs,
+            [action.payload.description]: [
+              ...state.lists[action.payload.description],
               action.payload
             ]
           }
@@ -83,7 +85,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           lists: {
             ...state.lists,
-            [action.payload.category]: [action.payload]
+            [action.payload.description]: [action.payload]
           }
         }
       }
