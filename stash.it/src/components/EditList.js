@@ -66,45 +66,49 @@ class EditList extends React.Component {
             <img
               className="fav"
               src="#"
-              alt="Stash.it"
+              alt=""
             />
           </ModalHeader>
           <ModalBody>
             <Input
               type="text"
-              name="website"
-              value={this.state.editList.website}
+              name="tab"
+              placeholder="Link"
+              value={this.state.editList.tab}
               onChange={this.handleChange}
               className="login-input"
             />
             <Input
               type="text"
-              name="category"
-              value={this.state.editList.category}
+              name="description"
+              placeholder="Description"
+              value={this.state.editList.description}
               onChange={this.handleChange}
               className="login-input"
             />
-            <Input
+{/*             <Input
               type="text"
               name="title"
+              placeholder="Title"
               value={this.state.editList.title}
               onChange={this.handleChange}
               className="login-input"
             />
             <Input
               type="textarea"
+              placeholder="Short Description"
               name="short_description"
               value={this.state.editList.short_description}
               onChange={this.handleChange}
               className="login-input"
-            />
+            /> */}
           </ModalBody>
           <ModalFooter>
             <Button
               className="edit-btn"
               onClick={() => this.editList(this.props.tab.id)}
             >
-              change it up!
+              Edit Tab
             </Button>{' '}
           </ModalFooter>
         </Modal>
