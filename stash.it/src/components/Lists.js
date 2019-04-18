@@ -53,12 +53,12 @@ class Lists extends Component {
 
   addList() {
     const newList = { tab: this.state.tab, description: this.state.description, user_id: Number(this.state.user_id) }
-  console.log(newList);
+      console.log(newList);
     this.props.addList(newList)
     this.setState({
-        // title: '',
+        // tab: '',
         tab: '',
-        // short_description: '',
+        // description: '',
         description: '',
         // user_id: '',
         user_id: ''
@@ -103,8 +103,10 @@ class Lists extends Component {
           </div>
         </div>
         <div>
-          {cats.map((cat, i) => (
-            <List
+          {cats.map((cat, i) => {
+            console.log(cat)
+            console.log(this.props.lists)
+            return <List
               key={i}
               category={cat}
               tabs={this.props.lists[cat]}
@@ -112,7 +114,7 @@ class Lists extends Component {
               fetchLists={this.props.fetchLists}
               user_id={this.state.user_id}
             />
-          ))}
+          })}
         </div>
         <>
           <footer>
@@ -128,13 +130,14 @@ class Lists extends Component {
               <img
                 className="fav"
                 src="#"
+                alt=""
               />
             </ModalHeader>
             <ModalBody>
               <Input
                 type="text"
                 name="tab"
-                placeholder="link"
+                placeholder="Link"
                 value={this.state.tab}
                 onChange={this.handleChange}
                 className="login-input"
@@ -142,7 +145,7 @@ class Lists extends Component {
               <Input
                 type="text"
                 name="description"
-                placeholder="don't make a mess—categorize your link!"
+                placeholder="Description"
                 value={this.state.description}
                 onChange={this.handleChange}
                 className="login-input"
@@ -159,7 +162,7 @@ class Lists extends Component {
             </ModalBody>
             <ModalFooter>
               <Button className="add-tab-btn" onClick={() => this.addList()}>
-                add it!
+                Create Tab
               </Button>{' '}
             </ModalFooter>
           </Modal>
