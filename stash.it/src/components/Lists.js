@@ -20,13 +20,9 @@ class Lists extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      newList: {
-        // title: '',
-        website: '',
-        // short_description: '',
-        category: '',
-        user_id: this.props.user_id
-      }
+      tab: '',
+      description: '',
+      user_id: ''
     }
     this.modalToggle = this.modalToggle.bind(this)
   }
@@ -43,11 +39,9 @@ class Lists extends Component {
   }
 
   handleChange = e => {
+    e.preventDefault()
     this.setState({
-      newList: {
-        ...this.state.newList,
         [e.target.name]: e.target.value
-      }
     })
   }
 
@@ -58,22 +52,23 @@ class Lists extends Component {
   }
 
   addList() {
-    this.props.addList(this.state.newList)
+    const newList = { tab: this.state.tab, description: this.state.description, user_id: Number(this.state.user_id) }
+  console.log(newList);
+    this.props.addList(newList)
     this.setState({
-      ...this.state,
-      newList: {
         // title: '',
-        website: '',
+        tab: '',
         // short_description: '',
-        category: ''
-      }
+        description: '',
+        // user_id: '',
+        user_id: ''
     })
     this.modalToggle()
   }
 
   deleteList = id => {
     axiosWithAuth()
-      .delete(`https://localhost:3000/tabs/${id}`)
+      .delete(`https://tabless-db.herokuapp.com/tabs/${id}`)
       .then(res => {
         console.log(res)
         this.props.fetchLists(this.props.user_id)
@@ -104,8 +99,6 @@ class Lists extends Component {
             <i className="fas fa-plus" onClick={this.modalToggle} />
           </div>
           <div className="user">
-            {/* <i className="fas fa-cog" /> */}
-            {/* <i className="fas fa-users" /> */}
             <i className="fas fa-sign-out-alt" onClick={this.logout} />
           </div>
         </div>
@@ -135,23 +128,31 @@ class Lists extends Component {
               <img
                 className="fav"
                 src="#"
-                alt="Stash.it Logo"
               />
             </ModalHeader>
             <ModalBody>
               <Input
                 type="text"
-                name="website"
+                name="tab"
                 placeholder="link"
-                value={this.state.newList.website}
+                value={this.state.tab}
                 onChange={this.handleChange}
                 className="login-input"
               />
               <Input
                 type="text"
-                name="category"
+                name="description"
                 placeholder="don't make a mess—categorize your link!"
-                value={this.state.newList.category}
+                value={this.state.description}
+                onChange={this.handleChange}
+                className="login-input"
+              />
+              {/* USER ID INPUT */}
+              <Input
+                type="text"
+                name="user_id"
+                placeholder="User ID"
+                value={this.state.user_id}
                 onChange={this.handleChange}
                 className="login-input"
               />
