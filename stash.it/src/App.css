@@ -155,7 +155,7 @@ h1 {
 	align-items: center;
 	background-position: 2% 50%;
 	background-repeat: no-repeat;
-	background-color: #ecf0f1;
+	background-color: #a3a3a3;
 	box-shadow: -1px 6px 35px -1px rgba(0, 0, 0, 0.75);
 	padding-right: 10px;
 	padding-left: 180px;
@@ -170,7 +170,7 @@ h1 {
 }
 
 .plus {
-	width: 200px;
+	width: 100px;
 	height: 100%;
 	display: flex;
 	justify-content: center;
@@ -180,12 +180,13 @@ h1 {
 }
 
 .user {
-	width: 400px;
+	width: 100px;
 	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #ecf0f1;
+	background-color: #ffffff;
+	color: black;
 }
 
 .add-tab-header {
@@ -234,6 +235,7 @@ h1 {
 
 .tabs p {
 	margin-top: 10px;
+	color: #000000;
 }
 
 .tab-icon-wrapper {
