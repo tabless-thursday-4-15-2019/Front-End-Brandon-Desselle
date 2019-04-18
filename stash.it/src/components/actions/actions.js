@@ -11,7 +11,7 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 export const login = creds => dispatch => {
   dispatch({ type: LOGIN_START })
   return axios
-    .post('https://localhost:3000/login', creds)
+    .post('https://tabless-db.herokuapp.com/login', creds)
     .then(res => {
       dispatch({ type: LOGIN_SUCCESS, payload: res.data.payload })
     })
@@ -48,7 +48,7 @@ export const ADD_LIST_FAILURE = 'ADD_LIST_FAILURE'
 
 export const addList = newList => dispatch => {
   axiosWithAuth()
-    .post(`https://localhost:3000/tabs`, newList)
+    .post(`https://tabless-nopg.herokuapp.com/tabs`, newList)
     .then(res => {
       dispatch({ type: ADD_LIST, payload: res.data })
     })
@@ -66,7 +66,7 @@ export const DELETE_SUCCESS = 'DELETE_SUCCESS'
 export const deleteList = id => dispatch => {
   dispatch({ type: DELETE_START })
   axiosWithAuth()
-    .delete(`https://localhost:3000/tabs/${id}`)
+    .delete(`https://tabless-nopg.herokuapp.com/tabs/${id}`)
     .then(res => {
       dispatch({ type: DELETE_SUCCESS, payload: res.data })
     })
