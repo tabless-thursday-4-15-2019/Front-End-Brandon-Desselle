@@ -13,7 +13,7 @@ import {
   Alert
 } from 'reactstrap'
 
-import { login } from './actions/actions'
+import { logIn } from './actions/actions'
 
 // --- Login 
 
@@ -22,15 +22,13 @@ class Login extends React.Component {
     super()
     this.state = {
       username: '',
-      password: '',
-      email: '',
+      password: ''
     }
     this.modalToggle = this.modalToggle.bind(this)
   }
 
   componentDidMount() {
     if (this.props.token) {
-      this.props.history.push('/tabs');
     }
   }
 
@@ -48,28 +46,22 @@ class Login extends React.Component {
 
   login = e => {
     e.preventDefault()
-    axios
-      .post('https://tabless-nopg.herokuapp.com/login', {
-        username: this.state.username,
-        password: this.state.password
-      })
+    const userInfo = {
+      username: this.state.username,
+      password: this.state.password
+    }
+    this.props.logIn(userInfo)
       .then(res => {
-        console.log(res.data)
-        localStorage.setItem('token', res.data.token)
-        localStorage.setItem('user_id', res.data.user_id)
         this.props.history.push('/tabs')
-        window.location.reload()
-        console.log(this.props)
       })
   }
 
   register = e => {
     e.preventDefault()
     axios
-      .post('https://tabless-nopg.herokuapp.com/register', {
+      .post('https://tabless-db.herokuapp.com/register', {
         username: this.state.username,
         password: this.state.password,
-        /* email: this.state.email */
       })
       .then(res => {
         console.log(res)
@@ -148,14 +140,14 @@ class Login extends React.Component {
                 className="login-input"
                 required
               />
-              <Input
+              {/* <Input
                 type="email"
                 name="email"
                 placeholder="email"
                 value={this.state.email}
                 onChange={this.handleChange}
                 className="login-input"
-              />
+              /> */}
             </ModalBody>
             <ModalFooter className="sign-up">
               <Button className="reg-btn" onClick={this.register}>
@@ -176,5 +168,5 @@ const mapStateToProps = ({ error, loggingIn, token, user_id }) => ({
 
 export default connect(
   mapStateToProps,
-  { login }
+  { logIn }
 )(Login)
