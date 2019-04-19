@@ -15,12 +15,13 @@ import {
 
 const initialState = {
   tests: [],
-  lists: {},
+  lists: [],
   loggingIn: false,
   error: null,
   fetchingLists: false,
-  token: localStorage.getItem('token'),
-  user_id: localStorage.getItem('user_id')
+  token: null,
+  user_id: localStorage.getItem('user_id'),
+  loggedIn: localStorage.getItem('token') ? true : false
 }
 
 /* REDUCER */
@@ -39,7 +40,8 @@ export const reducer = (state = initialState, action) => {
         loggingIn: false,
         error: false,
         token: action.payload,
-        user_id: localStorage.getItem('user_id')
+        user_id: action.user_id,
+        loggedIn: true
       }
     case LOGIN_FAILURE:
       return {
@@ -54,10 +56,9 @@ export const reducer = (state = initialState, action) => {
         error: null
       }
     case FETCH_LISTS_SUCCESS:
-    console.log(action.payload)
       return {
         ...state,
-        lists: Object.assign(state.lists, action.payload),
+        lists: action.payload,
         fetchingLists: false,
         error: null
       }
