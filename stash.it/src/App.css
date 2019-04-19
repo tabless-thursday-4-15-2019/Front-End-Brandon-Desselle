@@ -35,7 +35,6 @@
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	font-family: var(--head);
 }
 
 i {
@@ -55,68 +54,6 @@ h1 {
 	font-weight: bold;
 }
 
-.login-wrapper {
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-}
-
-.login-div {
-	width: 500px;
-	height: 500px;
-}
-
-.login-form-wrapper {
-	width: 100%;
-	height: 1000px;
-	display: flex;
-	justify-content: center;
-	background-position: 50% 50%;
-}
-
-.login-form {
-	width: 400px;
-	height: 500px;
-	margin-top: 120px;
-	box-shadow: 10px 11px 28px 0px rgba(0, 0, 0, 0.75);
-	background-color: #ecf0f1;
-	padding: 20px;
-	padding-top: 70px;
-	z-index: 1;
-}
-
-.logo-tt {
-	height: 100px;
-	width: 150px;
-	margin-left: 135px;
-	background-repeat: no-repeat;
-}
-
-.login-input {
-	height: 50px;
-	margin-bottom: 5px;
-	background-color: white;
-}
-
-.login-button-wrapper {
-	display: flex;
-	flex-direction: column-reverse;
-	justify-content: center;
-}
-
-.login-form p {
-	cursor: pointer;
-}
-
-.login-button-wrapper p {
-	margin-top: 10px;
-	margin-right: 10px;
-}
-
-.login-button {
-	background-color: #34495e;
-}
-
 .accent-quote {
 	font-size: 100px;
 }
@@ -127,46 +64,6 @@ h1 {
 	margin-top: -100px;
 	margin-left: -12px;
 	background-position: 50% 50%;
-}
-
-.sign-up {
-	background-color: #ecf0f1;
-	color: #000000;
-}
-
-.reg-btn {
-	background-color: #373331;
-}
-
-.loader {
-	margin-top: 300px;
-}
-
-.lists-wrapper {
-	width: 100%;
-}
-
-.nav-bar {
-	width: 100%;
-	height: 80px;
-	position: fixed;
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-	background-position: 2% 50%;
-	background-repeat: no-repeat;
-	background-color: #a3a3a3;
-	box-shadow: -1px 6px 35px -1px rgba(0, 0, 0, 0.75);
-	padding-right: 10px;
-	padding-left: 180px;
-	color: #000000;
-	font-size: 30px;
-	z-index: 200;
-}
-
-.nav-bar i {
-	margin-right: 10px;
-	margin-left: 10px;
 }
 
 .plus {
@@ -266,3 +163,137 @@ footer {
 	background-color: white;
 	padding-top: 50px;
 }
+
+/* LOGIN LOGIN LOGIN */
+.login-wrapper {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.login-div {
+	width: 500px;
+	height: 500px;
+}
+.login-form-wrapper {
+	width: 100%;
+	height: 1000px;
+	display: flex;
+	justify-content: center;
+	background-position: 50% 50%;
+}
+.login-form {
+	width: 400px;
+	height: 500px;
+	margin-top: 200px;
+	box-shadow: 10px 11px 28px 0px rgba(0, 0, 0, 0.75);
+	background-color: #ecf0f1;
+	padding: 20px;
+	z-index: 1;
+}
+.logo-tt {
+	text-align: center;
+}
+.login-head-logo {
+	height: 200px;
+}
+.login-input {
+	text-align: center;
+	height: 50px;
+	margin-bottom: 10px;
+	background-color: white;
+	font-family: 'Raleway';
+	font-weight: 500;
+	color: var(--text);
+}
+.login-button-wrapper {
+	display: flex;
+	flex-direction: column-reverse;
+	justify-content: center;
+}
+.login-form p {
+	cursor: pointer;
+}
+.login-button-wrapper p {
+	text-align: center;
+	margin-top: 10px;
+	margin-right: 10px;
+	color: var(--text);
+}
+.login-button-wrapper p:hover {
+	color: var(--cta);
+}
+.login-button {
+	width: 360px;
+	background-color: var(--cta);
+	margin: 0 auto;
+	font-family: 'Raleway';
+	font-weight: 700;
+	color: var(--white);
+}
+.login-button:hover {
+	background-color: var(--text);
+}
+
+/* SIGNUP SIGNUP SIGNUP */
+.modal-dialog {
+	width: 400px;
+}
+.modal-content {
+	height: 500px;
+}
+.signup-head-logo {
+	height: 200px;
+	margin-left: 90px;
+}
+.close {
+	color: var(--cta);
+}
+.close:hover {
+	color: var(--text);
+}
+.reg-btn {
+	background-color: var(--cta);
+	font-family: 'Raleway';
+	font-weight: 700;
+	color: var(--white);
+}
+.reg-btn:hover {
+	color: var(--text);
+	color: var(--white);
+}
+
+/* NAVBAR NAVBAR NAVBAR */
+.lists-wrapper {
+	width: 100%;
+	height: 100vh;
+}
+.nav-bar {
+	width: 100%;
+	position: fixed;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: transparent;
+	/* box-shadow: -1px 6px 35px -1px rgba(0, 0, 0, 0.75); */
+	font-size: 30px;
+	z-index: 200;
+}
+.nav-bar i {
+	margin-right: 10px;
+	margin-left: 10px;
+}
+.list-nav-logo {
+	height: 100px;
+}
+.plus {
+	height: 100px;
+	color: var(--cta);
+}
+.plus:hover {
+
+}
+.user {
+	height: 100px;
+	color: var(--cta);
+}
+/* .user:hover */
