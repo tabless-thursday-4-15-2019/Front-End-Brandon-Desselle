@@ -3,21 +3,22 @@ import { Card, CardHeader, CardBody,/*  CardTitle, */ CardText } from 'reactstra
 
 import EditList from './EditList'
 
+import { addList } from './actions/actions'
+import { connect } from 'react-redux'
+
 // --- List component
 
 class List extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
+
 
   render() {
+    console.log(this.props)
     return (
       <div className="obj-wrapper">
-        <h1>{this.props.tab}</h1>
+        <h1>{/* this.props.tab */}</h1>
 
         <div className="cat-wrapper">
-          {this.props.tabs.map((tab, i) => (
+            {this.props.lists.map((tab, i) => (
 
             <Card className="tabs" key={i}>
 
@@ -26,14 +27,12 @@ class List extends React.Component {
               </CardHeader>
 
               <CardBody className="card-body">
-                {/* <CardTitle className="title">{tab.title}</CardTitle> */}
                 <CardText>
                   <a href={tab.tab} target="_blank" rel="noopener noreferrer">
                     {tab.tab}
                   </a>
                   <br />
                   <br />
-                  {/* <span>{tab.short_description}</span> */}
                 </CardText>
 
               </CardBody>
@@ -48,10 +47,13 @@ class List extends React.Component {
 
           ))}
         </div>
-
       </div>
-    )
+    )}
   }
-}
 
-export default List;
+const mapStateToProps = state => ({
+  lists: state.lists
+})
+
+export default connect(mapStateToProps, 
+  {addList})(List);
