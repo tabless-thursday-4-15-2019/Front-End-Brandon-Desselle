@@ -28,8 +28,7 @@ class Lists extends Component {
   }
 
   componentDidMount() {
-    const { user_id } = this.props
-    this.props.fetchLists(user_id)
+    this.props.fetchLists(localStorage.getItem('user_id'))
   }
 
   modalToggle() {
@@ -108,7 +107,7 @@ class Lists extends Component {
             console.log(this.props.lists)
             return <List
               key={i}
-              category={cat}
+              description={cat}
               tabs={this.props.lists[cat]}
               deleteList={this.deleteList}
               fetchLists={this.props.fetchLists}
