@@ -14,7 +14,7 @@ const PrivateRoute = ({
     <Route
       {...rest}
       render={props =>
-        token && errorStatusCode !== 403 ? (
+        rest.loggedIn && errorStatusCode !== 403 ? (
           <Component {...props} />
         ) : (
             <Redirect to="/" />
@@ -24,9 +24,10 @@ const PrivateRoute = ({
   );
 };
 
-const mapStateToProps = ({ token, errorStatusCode }) => ({
+const mapStateToProps = ({ token, errorStatusCode, loggedIn }) => ({
   errorStatusCode,
-  token
+  token,
+  loggedIn
 });
 
 export default withRouter(

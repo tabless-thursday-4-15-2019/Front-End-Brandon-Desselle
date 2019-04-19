@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import Loader from 'react-loader-spinner'
+/* import Loader from 'react-loader-spinner' */
 import { connect } from 'react-redux'
 import {
   Button,
@@ -13,7 +13,7 @@ import {
   Alert
 } from 'reactstrap'
 
-import { login } from './actions/actions'
+import { logIn } from './actions/actions'
 
 // --- Login 
 
@@ -22,15 +22,13 @@ class Login extends React.Component {
     super()
     this.state = {
       username: '',
-      password: '',
-      email: '',
+      password: ''
     }
     this.modalToggle = this.modalToggle.bind(this)
   }
 
   componentDidMount() {
     if (this.props.token) {
-      this.props.history.push('/tabs');
     }
   }
 
@@ -48,28 +46,22 @@ class Login extends React.Component {
 
   login = e => {
     e.preventDefault()
-    axios
-      .post('https://tabless-nopg.herokuapp.com/login', {
-        username: this.state.username,
-        password: this.state.password
-      })
+    const userInfo = {
+      username: this.state.username,
+      password: this.state.password
+    }
+    this.props.logIn(userInfo)
       .then(res => {
-        console.log(res.data)
-        localStorage.setItem('token', res.data.token)
-        localStorage.setItem('user_id', res.data.user_id)
         this.props.history.push('/tabs')
-        window.location.reload()
-        console.log(this.props)
       })
   }
 
   register = e => {
     e.preventDefault()
     axios
-      .post('https://tabless-nopg.herokuapp.com/register', {
+      .post('https://tabless-db.herokuapp.com/register', {
         username: this.state.username,
         password: this.state.password,
-        /* email: this.state.email */
       })
       .then(res => {
         console.log(res)
@@ -82,7 +74,11 @@ class Login extends React.Component {
       <div className="login-wrapper">
         <div className="login-form-wrapper">
           <Form className="login-form" onSubmit={this.login}>
-            <div className="logo-tt"></div>
+            <div className="logo-tt">
+              <a href="https://stash-it.netlify.com/">
+                <img className="login-head-logo" src="https://i.imgur.com/lEtYe1l.png" title="Stash.it Logo" alt="#" />
+              </a>
+            </div>
             <Input
               type="text"
               name="username"
@@ -105,14 +101,14 @@ class Login extends React.Component {
               <p onClick={this.modalToggle}>need an account?</p>
               <Button className="login-button">
                 {this.props.loggingIn ? (
-                  <Loader
+                  {/* <Loader
                     type="ThreeDots"
                     color="#000000"
                     height="12"
                     width="26"
-                  />
+                  /> */}
                 ) : (
-                    'login'
+                    'Login'
                   )}
               </Button>
               {this.props.error === true ? (
@@ -128,7 +124,11 @@ class Login extends React.Component {
             toggle={this.modalToggle}
             className="sign-up"
           >
-            <ModalHeader className="sign-up" toggle={this.modalToggle}><span className="accent-quote">Sign Up</span><div className="stash" /></ModalHeader>
+            <ModalHeader className="sign-up" toggle={this.modalToggle}>
+              <a href="https://stash-it.netlify.com/">
+                <img className="signup-head-logo" src="https://i.imgur.com/lEtYe1l.png" title="Stash.it Logo" alt="#" />
+              </a>
+            </ModalHeader>
             <ModalBody>
               <Input
                 type="text"
@@ -148,14 +148,14 @@ class Login extends React.Component {
                 className="login-input"
                 required
               />
-              <Input
+              {/* <Input
                 type="email"
                 name="email"
                 placeholder="email"
                 value={this.state.email}
                 onChange={this.handleChange}
                 className="login-input"
-              />
+              /> */}
             </ModalBody>
             <ModalFooter className="sign-up">
               <Button className="reg-btn" onClick={this.register}>
@@ -176,5 +176,5 @@ const mapStateToProps = ({ error, loggingIn, token, user_id }) => ({
 
 export default connect(
   mapStateToProps,
-  { login }
+  { logIn }
 )(Login)

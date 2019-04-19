@@ -15,12 +15,13 @@ import {
 
 const initialState = {
   tests: [],
-  lists: {},
+  lists: [],
   loggingIn: false,
   error: null,
   fetchingLists: false,
-  token: localStorage.getItem('token'),
-  user_id: localStorage.getItem('user_id')
+  token: null,
+  user_id: localStorage.getItem('user_id'),
+  loggedIn: localStorage.getItem('token') ? true : false
 }
 
 /* REDUCER */
@@ -39,7 +40,8 @@ export const reducer = (state = initialState, action) => {
         loggingIn: false,
         error: false,
         token: action.payload,
-        user_id: localStorage.getItem('user_id')
+        user_id: action.user_id,
+        loggedIn: true
       }
     case LOGIN_FAILURE:
       return {
@@ -56,7 +58,7 @@ export const reducer = (state = initialState, action) => {
     case FETCH_LISTS_SUCCESS:
       return {
         ...state,
-        lists: Object.assign(state.lists, action.payload),
+        lists: action.payload,
         fetchingLists: false,
         error: null
       }
@@ -67,13 +69,14 @@ export const reducer = (state = initialState, action) => {
         error: action.payload
       }
     case ADD_LIST:
-      if (Object.keys(state.lists).includes(action.payload.category)) {
+    console.log(action.payload)
+      if (Object.keys(state.lists).includes(action.payload.description)) {
         return {
           ...state,
           lists: {
-            ...state.lists,
-            [action.payload.category]: [
-              ...state.lists[action.payload.category],
+            ...state.lists.tabs,
+            [action.payload.description]: [
+              ...state.lists[action.payload.description],
               action.payload
             ]
           }
@@ -83,7 +86,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           lists: {
             ...state.lists,
-            [action.payload.category]: [action.payload]
+            [action.payload.description]: [action.payload]
           }
         }
       }

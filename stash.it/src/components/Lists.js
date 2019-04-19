@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Loader from 'react-loader-spinner'
+/* import Loader from 'react-loader-spinner' */
 import {
   Button,
   Modal,
@@ -28,8 +28,7 @@ class Lists extends Component {
   }
 
   componentDidMount() {
-    const { user_id } = this.props
-    this.props.fetchLists(user_id)
+    this.props.fetchLists(localStorage.getItem('user_id'))
   }
 
   modalToggle() {
@@ -53,12 +52,12 @@ class Lists extends Component {
 
   addList() {
     const newList = { tab: this.state.tab, description: this.state.description, user_id: Number(this.state.user_id) }
-  console.log(newList);
+      console.log(newList);
     this.props.addList(newList)
     this.setState({
-        // title: '',
+        // tab: '',
         tab: '',
-        // short_description: '',
+        // description: '',
         description: '',
         // user_id: '',
         user_id: ''
@@ -79,7 +78,7 @@ class Lists extends Component {
       })
   }
   render() {
-    if (this.props.fetchingLists === true) {
+/*     if (this.props.fetchingLists === true) {
       return (
         <Loader
           type="Grid"
@@ -89,30 +88,40 @@ class Lists extends Component {
           width={280}
         />
       )
-    }
+    } */
     // grab the categories off the Object
     const cats = Object.keys(this.props.lists)
     return (
       <div className="lists-wrapper">
         <div className="nav-bar">
+
           <div className="plus">
             <i className="fas fa-plus" onClick={this.modalToggle} />
           </div>
+
+          <div className="logo">
+            <a href="https://stash-it.netlify.com/"><img className="list-nav-logo" src="https://i.imgur.com/3pSkA5g.png" title="Stash.it Logo" alt="#" />
+            </a>
+          </div>
+
           <div className="user">
             <i className="fas fa-sign-out-alt" onClick={this.logout} />
           </div>
+
         </div>
         <div>
-          {cats.map((cat, i) => (
-            <List
+          {cats.map((cat, i) => {
+            console.log(cat)
+            console.log(this.props.lists)
+            return <List
               key={i}
-              category={cat}
+              description={cat}
               tabs={this.props.lists[cat]}
               deleteList={this.deleteList}
               fetchLists={this.props.fetchLists}
               user_id={this.state.user_id}
             />
-          ))}
+          })}
         </div>
         <>
           <footer>
@@ -128,13 +137,14 @@ class Lists extends Component {
               <img
                 className="fav"
                 src="#"
+                alt=""
               />
             </ModalHeader>
             <ModalBody>
               <Input
                 type="text"
                 name="tab"
-                placeholder="link"
+                placeholder="Link"
                 value={this.state.tab}
                 onChange={this.handleChange}
                 className="login-input"
@@ -142,7 +152,7 @@ class Lists extends Component {
               <Input
                 type="text"
                 name="description"
-                placeholder="don't make a mess—categorize your link!"
+                placeholder="Description"
                 value={this.state.description}
                 onChange={this.handleChange}
                 className="login-input"
@@ -159,7 +169,7 @@ class Lists extends Component {
             </ModalBody>
             <ModalFooter>
               <Button className="add-tab-btn" onClick={() => this.addList()}>
-                add it!
+                Create Tab
               </Button>{' '}
             </ModalFooter>
           </Modal>
