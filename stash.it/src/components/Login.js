@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import Loader from 'react-loader-spinner'
+/* import Loader from 'react-loader-spinner' */
 import { connect } from 'react-redux'
 import {
   Button,
@@ -74,7 +74,11 @@ class Login extends React.Component {
       <div className="login-wrapper">
         <div className="login-form-wrapper">
           <Form className="login-form" onSubmit={this.login}>
-            <div className="logo-tt"></div>
+            <div className="logo-tt">
+              <a href="https://stash-it.netlify.com/">
+                <img className="login-head-logo" src="https://i.imgur.com/lEtYe1l.png" title="Stash.it Logo" alt="#" />
+              </a>
+            </div>
             <Input
               type="text"
               name="username"
@@ -97,14 +101,14 @@ class Login extends React.Component {
               <p onClick={this.modalToggle}>need an account?</p>
               <Button className="login-button">
                 {this.props.loggingIn ? (
-                  <Loader
+                  {/* <Loader
                     type="ThreeDots"
                     color="#000000"
                     height="12"
                     width="26"
-                  />
+                  /> */}
                 ) : (
-                    'login'
+                    'Login'
                   )}
               </Button>
               {this.props.error === true ? (
@@ -120,7 +124,11 @@ class Login extends React.Component {
             toggle={this.modalToggle}
             className="sign-up"
           >
-            <ModalHeader className="sign-up" toggle={this.modalToggle}><span className="accent-quote">Sign Up</span><div className="stash" /></ModalHeader>
+            <ModalHeader className="sign-up" toggle={this.modalToggle}>
+              <a href="https://stash-it.netlify.com/">
+                <img className="signup-head-logo" src="https://i.imgur.com/lEtYe1l.png" title="Stash.it Logo" alt="#" />
+              </a>
+            </ModalHeader>
             <ModalBody>
               <Input
                 type="text"
